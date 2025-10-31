@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ng version:*)",
+      "Bash(npx -y @angular/cli@latest new poetry-app --routing=true --style=css --skip-git=true)",
+      "Bash(npx -y @angular/cli@17 new poetry-app --routing=true --style=css --skip-git=true)",
+      "Bash(npm start)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

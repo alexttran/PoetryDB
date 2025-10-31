@@ -1,0 +1,28 @@
+<div class="poem-card">
+  <div class="poem-header">
+    <h3 class="poem-title">{{ poem.title }}</h3>
+    <p class="poem-author">by {{ poem.author }}</p>
+    <span class="line-count">{{ poem.linecount }} lines</span>
+  </div>
+
+  <div class="poem-content">
+    <div class="poem-lines" [class.expanded]="isExpanded">
+      <p *ngFor="let line of getDisplayedLines()" class="poem-line">
+        {{ line || '&nbsp;' }}
+      </p>
+    </div>
+
+    <button
+      *ngIf="shouldShowToggle()"
+      (click)="toggleExpanded()"
+      class="toggle-btn"
+    >
+      <span *ngIf="!isExpanded">Read More ↓</span>
+      <span *ngIf="isExpanded">Show Less ↑</span>
+    </button>
+  </div>
+
+  <div class="poem-footer">
+    <div class="decorative-line"></div>
+  </div>
+</div>

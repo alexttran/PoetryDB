@@ -1,0 +1,140 @@
+.poem-card {
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.poem-card::before {
+  content: '"';
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  font-size: 120px;
+  color: rgba(102, 126, 234, 0.05);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.poem-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+}
+
+.poem-header {
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.poem-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0 0 0.5rem 0;
+  font-family: Georgia, serif;
+  line-height: 1.4;
+}
+
+.poem-author {
+  font-size: 1.1rem;
+  color: #667eea;
+  font-style: italic;
+  margin: 0.5rem 0;
+  font-weight: 500;
+}
+
+.line-count {
+  display: inline-block;
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.poem-content {
+  position: relative;
+  z-index: 1;
+}
+
+.poem-lines {
+  max-height: 400px;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  position: relative;
+}
+
+.poem-lines.expanded {
+  max-height: none;
+}
+
+.poem-line {
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #4a5568;
+  margin: 0;
+  padding: 0.2rem 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.poem-line:empty::before {
+  content: '\00a0';
+}
+
+.toggle-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.toggle-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.poem-footer {
+  margin-top: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.decorative-line {
+  height: 3px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, transparent 100%);
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .poem-card {
+    padding: 1.5rem;
+  }
+
+  .poem-title {
+    font-size: 1.3rem;
+  }
+
+  .poem-author {
+    font-size: 1rem;
+  }
+
+  .poem-line {
+    font-size: 0.9rem;
+  }
+}
