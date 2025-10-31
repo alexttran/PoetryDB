@@ -22,6 +22,7 @@ export class PoetrySearchComponent {
   // Pagination properties
   currentPage: number = 1;
   itemsPerPage: number = 15;
+  isRandomPoems: boolean = false;
 
   constructor(private poetryService: PoetryService) {
     // Load some random poems on initialization
@@ -33,6 +34,7 @@ export class PoetrySearchComponent {
     this.error = '';
     this.searchPerformed = true;
     this.currentPage = 1;
+    this.isRandomPoems = true;
 
     this.poetryService.getRandomPoems(5).subscribe({
       next: (data) => {
@@ -58,6 +60,7 @@ export class PoetrySearchComponent {
     this.searchPerformed = true;
     this.poems = [];
     this.currentPage = 1;
+    this.isRandomPoems = false;
 
     let searchObservable;
 
@@ -95,6 +98,7 @@ export class PoetrySearchComponent {
     this.error = '';
     this.searchPerformed = false;
     this.currentPage = 1;
+    this.isRandomPoems = false;
   }
 
   // Pagination methods

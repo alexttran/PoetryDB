@@ -46,7 +46,7 @@
 }
 
 .poem-card.expanded-card {
-  grid-column: span 100;
+  grid-column: span 2;
   box-shadow:
     inset 0 0 60px rgba(76, 92, 64, 0.2),
     inset 0 0 30px rgba(76, 92, 64, 0.15),
@@ -143,21 +143,22 @@
   content: '\00a0';
 }
 
-.toggle-btn {
+.button-group {
   margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.toggle-btn {
   padding: 0.6rem 1.5rem;
-  background: linear-gradient(135deg, #6b7c5a 0%, #4c5c40 100%);
-  color: #f4ead5;
   border: 2px solid #5d4e3a;
-  border-top-color: #7d8e6c;
-  border-left-color: #7d8e6c;
   border-radius: 3px;
   cursor: pointer;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   font-family: 'Cinzel', serif;
   transition: all 0.3s ease;
-  width: 100%;
+  flex: 1;
   text-transform: uppercase;
   letter-spacing: 1px;
   box-shadow:
@@ -165,12 +166,34 @@
     0 3px 8px rgba(45, 36, 22, 0.4);
 }
 
-.toggle-btn:hover {
+.toggle-btn.btn-primary {
+  background: linear-gradient(135deg, #6b7c5a 0%, #4c5c40 100%);
+  color: #f4ead5;
+  border-top-color: #7d8e6c;
+  border-left-color: #7d8e6c;
+}
+
+.toggle-btn.btn-primary:hover {
   transform: translateY(-1px);
   box-shadow:
     inset 0 1px 2px rgba(255, 255, 255, 0.3),
     0 5px 12px rgba(45, 36, 22, 0.5);
   background: linear-gradient(135deg, #7d8e6c 0%, #5d6d4c 100%);
+}
+
+.toggle-btn.btn-secondary {
+  background: linear-gradient(135deg, #c4b59d 0%, #a89073 100%);
+  color: #3d2f1f;
+  border-top-color: #d4c5a9;
+  border-left-color: #d4c5a9;
+}
+
+.toggle-btn.btn-secondary:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.3),
+    0 5px 12px rgba(45, 36, 22, 0.5);
+  background: linear-gradient(135deg, #d4c5a9 0%, #b8a583 100%);
 }
 
 .poem-footer {
@@ -204,7 +227,7 @@
   }
 
   .poem-card.expanded-card {
-    min-width: 100%;
+    grid-column: span 1;
   }
 
   .expanded-card .poem-line {

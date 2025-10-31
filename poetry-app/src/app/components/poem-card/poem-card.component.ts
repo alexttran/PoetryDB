@@ -11,20 +11,42 @@ import { Poem } from '../../services/poetry.service';
 })
 export class PoemCardComponent {
   @Input() poem!: Poem;
-  isExpanded: boolean = false;
+  displayedLineCount: number = 10;
 
-  toggleExpanded(): void {
-    this.isExpanded = !this.isExpanded;
+  readMore(): void {
+    if (this.displayedLineCount === 10) {
+      // First click: jump to 50 lines
+      this.displayedLineCount = Math.min(50, this.poem.lines.length);
+    } else {
+      // Subsequent clicks: increment by 25
+      this.displayedLineCount = Math.min(
+        this.displayedLineCount + 25,
+        this.poem.lines.length
+      );
+    }
+  }
+
+  showLess(): void {
+    this.displayedLineCount = 10;
   }
 
   getDisplayedLines(): string[] {
-    if (this.isExpanded || this.poem.lines.length <= 10) {
+    if (this.poem.lines.length <= 10) {
       return this.poem.lines;
     }
-    return this.poem.lines.slice(0, 10);
+    return this.poem.lines.slice(0, this.displayedLineCount);
   }
 
-  shouldShowToggle(): boolean {
-    return this.poem.lines.length > 10;
+  shouldShowReadMore(): boolean {
+    return this.poem.lines.length > 10 &&
+           this.displayedLineCount < this.poem.lines.length;
+  }
+
+  shouldShowShowLess(): boolean {
+    return this.displayedLineCount > 10;
+  }
+
+  get isExpanded(): boolean {
+    return this.displayedLineCount > 10;
   }
 }

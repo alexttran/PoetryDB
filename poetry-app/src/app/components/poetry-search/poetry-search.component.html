@@ -57,7 +57,8 @@
 
   <div class="results-container" *ngIf="!loading && searchPerformed">
     <div class="results-header" *ngIf="poems.length > 0">
-      <h2>Found {{ poems.length }} poem{{ poems.length !== 1 ? 's' : '' }}</h2>
+      <h2 *ngIf="!isRandomPoems">Found {{ poems.length }} poem{{ poems.length !== 1 ? 's' : '' }}</h2>
+      <h2 *ngIf="isRandomPoems">{{ poems.length }} Random Poem{{ poems.length !== 1 ? 's' : '' }}</h2>
       <p class="page-info" *ngIf="totalPages > 1">
         Page {{ currentPage }} of {{ totalPages }}
       </p>

@@ -12,14 +12,23 @@
       </p>
     </div>
 
-    <button
-      *ngIf="shouldShowToggle()"
-      (click)="toggleExpanded()"
-      class="toggle-btn"
-    >
-      <span *ngIf="!isExpanded">Read More ↓</span>
-      <span *ngIf="isExpanded">Show Less ↑</span>
-    </button>
+    <div class="button-group" *ngIf="shouldShowReadMore() || shouldShowShowLess()">
+      <button
+        *ngIf="shouldShowShowLess()"
+        (click)="showLess()"
+        class="toggle-btn btn-secondary"
+      >
+        Show Less ↑
+      </button>
+
+      <button
+        *ngIf="shouldShowReadMore()"
+        (click)="readMore()"
+        class="toggle-btn btn-primary"
+      >
+        Read More ↓
+      </button>
+    </div>
   </div>
 
   <div class="poem-footer">
