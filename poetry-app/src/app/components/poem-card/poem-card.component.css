@@ -1,36 +1,68 @@
 .poem-card {
-  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(89, 74, 50, 0.03) 0%, rgba(61, 47, 31, 0.05) 100%),
+    linear-gradient(45deg, #e8dcc0 25%, transparent 25%, transparent 75%, #e8dcc0 75%, #e8dcc0),
+    linear-gradient(45deg, #e8dcc0 25%, transparent 25%, transparent 75%, #e8dcc0 75%, #e8dcc0),
+    linear-gradient(to bottom, #f4ead5, #e8dcc0);
+  background-size: 100% 100%, 7px 7px, 7px 7px, 100% 100%;
+  background-position: 0 0, 0 0, 3.5px 3.5px, 0 0;
+  border-radius: 3px;
   padding: 2rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  border: 1px solid rgba(102, 126, 234, 0.1);
+  box-shadow:
+    inset 0 0 50px rgba(139, 115, 85, 0.15),
+    inset 0 0 20px rgba(139, 115, 85, 0.2),
+    0 8px 20px rgba(45, 36, 22, 0.4),
+    0 2px 5px rgba(45, 36, 22, 0.3);
+  transition: all 0.4s ease;
+  border: 2px solid #8b7355;
+  border-top-color: #a89073;
+  border-left-color: #a89073;
   position: relative;
   overflow: hidden;
+  transform: rotate(0.5deg);
 }
 
 .poem-card::before {
-  content: '"';
+  content: '';
   position: absolute;
-  top: -20px;
-  left: 10px;
-  font-size: 120px;
-  color: rgba(102, 126, 234, 0.05);
-  font-family: Georgia, serif;
-  line-height: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(139, 115, 85, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(89, 74, 50, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(139, 115, 85, 0.05) 0%, transparent 80%);
+  pointer-events: none;
 }
 
 .poem-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+  transform: translateY(-4px) rotate(0deg);
+  box-shadow:
+    inset 0 0 50px rgba(139, 115, 85, 0.2),
+    inset 0 0 20px rgba(139, 115, 85, 0.25),
+    0 12px 30px rgba(45, 36, 22, 0.5),
+    0 4px 8px rgba(45, 36, 22, 0.4);
 }
 
 .poem-card.expanded-card {
   grid-column: span 100;
-  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.25);
-  transform: none;
-  background: linear-gradient(135deg, #e8f0fe 0%, #dce9f5 100%);
-  border: 2px solid #667eea;
+  box-shadow:
+    inset 0 0 60px rgba(76, 92, 64, 0.2),
+    inset 0 0 30px rgba(76, 92, 64, 0.15),
+    0 15px 40px rgba(45, 36, 22, 0.6),
+    0 6px 12px rgba(45, 36, 22, 0.5);
+  transform: rotate(0deg);
+  background:
+    linear-gradient(135deg, rgba(76, 92, 64, 0.05) 0%, rgba(89, 74, 50, 0.08) 100%),
+    linear-gradient(45deg, #dce5ce 25%, transparent 25%, transparent 75%, #dce5ce 75%, #dce5ce),
+    linear-gradient(45deg, #dce5ce 25%, transparent 25%, transparent 75%, #dce5ce 75%, #dce5ce),
+    linear-gradient(to bottom, #e8f0db, #dce5ce);
+  background-size: 100% 100%, 7px 7px, 7px 7px, 100% 100%;
+  background-position: 0 0, 0 0, 3.5px 3.5px, 0 0;
+  border: 3px solid #6b7c5a;
+  border-top-color: #7d8e6c;
+  border-left-color: #7d8e6c;
 }
 
 .poem-header {
@@ -40,31 +72,38 @@
 }
 
 .poem-title {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  color: #2d3748;
+  color: #3d2f1f;
   margin: 0 0 0.5rem 0;
-  font-family: Georgia, serif;
-  line-height: 1.4;
+  font-family: 'UnifrakturMaguntia', 'Cinzel', Georgia, serif;
+  line-height: 1.5;
+  text-shadow: 1px 1px 2px rgba(139, 115, 85, 0.3);
+  letter-spacing: 0.5px;
 }
 
 .poem-author {
-  font-size: 1.1rem;
-  color: #667eea;
+  font-size: 1.15rem;
+  color: #4c5c40;
   font-style: italic;
   margin: 0.5rem 0;
   font-weight: 500;
+  font-family: 'IM Fell English', serif;
 }
 
 .line-count {
   display: inline-block;
-  background: rgba(102, 126, 234, 0.1);
-  color: #667eea;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.85rem;
+  background: linear-gradient(135deg, #8b7355 0%, #6b5d47 100%);
+  color: #f4ead5;
+  padding: 0.3rem 0.9rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
   font-weight: 600;
   margin-top: 0.5rem;
+  border: 1px solid #5d4e3a;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2), 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .poem-content {
@@ -84,19 +123,20 @@
 }
 
 .poem-line {
-  font-family: 'Courier New', monospace;
-  font-size: 0.95rem;
-  line-height: 1.8;
-  color: #4a5568;
+  font-family: 'IM Fell English', 'Palatino', 'Book Antiqua', serif;
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #3d2f1f;
   margin: 0;
-  padding: 0.2rem 0;
+  padding: 0.25rem 0;
   white-space: pre-wrap;
   word-wrap: break-word;
+  font-style: italic;
 }
 
 .expanded-card .poem-line {
-  font-size: 1rem;
-  line-height: 2;
+  font-size: 1.1rem;
+  line-height: 2.1;
 }
 
 .poem-line:empty::before {
@@ -105,21 +145,32 @@
 
 .toggle-btn {
   margin-top: 1rem;
-  padding: 0.5rem 1.5rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border: none;
-  border-radius: 20px;
+  padding: 0.6rem 1.5rem;
+  background: linear-gradient(135deg, #6b7c5a 0%, #4c5c40 100%);
+  color: #f4ead5;
+  border: 2px solid #5d4e3a;
+  border-top-color: #7d8e6c;
+  border-left-color: #7d8e6c;
+  border-radius: 3px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 600;
+  font-family: 'Cinzel', serif;
   transition: all 0.3s ease;
   width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.2),
+    0 3px 8px rgba(45, 36, 22, 0.4);
 }
 
 .toggle-btn:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.3),
+    0 5px 12px rgba(45, 36, 22, 0.5);
+  background: linear-gradient(135deg, #7d8e6c 0%, #5d6d4c 100%);
 }
 
 .poem-footer {
@@ -129,9 +180,10 @@
 }
 
 .decorative-line {
-  height: 3px;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, transparent 100%);
-  border-radius: 2px;
+  height: 2px;
+  background: linear-gradient(90deg, #8b7355 0%, #6b7c5a 50%, transparent 100%);
+  border-radius: 1px;
+  box-shadow: 0 1px 2px rgba(45, 36, 22, 0.3);
 }
 
 @media (max-width: 768px) {
