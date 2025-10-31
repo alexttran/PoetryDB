@@ -1,4 +1,4 @@
-<div class="poem-card">
+<div class="poem-card" [class.expanded-card]="isExpanded">
   <div class="poem-header">
     <h3 class="poem-title">{{ poem.title }}</h3>
     <p class="poem-author">by {{ poem.author }}</p>

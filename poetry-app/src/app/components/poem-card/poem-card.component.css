@@ -25,6 +25,14 @@
   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
 }
 
+.poem-card.expanded-card {
+  grid-column: span 100;
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.25);
+  transform: none;
+  background: linear-gradient(135deg, #e8f0fe 0%, #dce9f5 100%);
+  border: 2px solid #667eea;
+}
+
 .poem-header {
   margin-bottom: 1.5rem;
   position: relative;
@@ -86,6 +94,11 @@
   word-wrap: break-word;
 }
 
+.expanded-card .poem-line {
+  font-size: 1rem;
+  line-height: 2;
+}
+
 .poem-line:empty::before {
   content: '\00a0';
 }
@@ -136,5 +149,13 @@
 
   .poem-line {
     font-size: 0.9rem;
+  }
+
+  .poem-card.expanded-card {
+    min-width: 100%;
+  }
+
+  .expanded-card .poem-line {
+    font-size: 0.95rem;
   }
 }
